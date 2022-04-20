@@ -36,7 +36,7 @@ export class MyComponentComponent implements OnInit {
   }
 
   postMessage() {
-    this.myService.postMessage(this.myForm.value.firstName, this.myForm.value.lastName).subscribe(data => {
+    this.myService.postMessage(this.myForm.value).subscribe(data => {
       this.message = data;
     }, error => {
       this.message = error.message;

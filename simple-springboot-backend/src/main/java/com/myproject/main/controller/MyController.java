@@ -26,6 +26,7 @@ public class MyController {
 	
 	@PostMapping("")
 	public static String postMessage(@RequestBody Body obj) {
+		LOGGER.info("New object -> {}", obj.toString());
 		LOGGER.info("Inside MyController.MyController.postMessage() at {}", System.currentTimeMillis());
 		return obj.toString();
 	}
