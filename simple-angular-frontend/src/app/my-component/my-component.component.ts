@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MyComponentService } from './my-component.service';
 
 @Component({
@@ -9,15 +10,33 @@ import { MyComponentService } from './my-component.service';
 export class MyComponentComponent implements OnInit {
 
   message: any;
+  myForm!: FormGroup;
 
-  constructor(private myService: MyComponentService) { }
+  constructor(private myService: MyComponentService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getMessage();
+    this.myForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]
+    });
   }
 
   getMessage() {
     this.myService.getMessage().subscribe(data => {
+      this.message = data;
+    }, error => {
+      this.message = error.message;
+    });
+  }
+
+  onSubmit() {
+    this.postMessage();
+  }
+
+  postMessage() {
+    this.myService.postMessage(this.myForm.value.firstName, this.myForm.value.lastName).subscribe(data => {
       this.message = data;
     }, error => {
       this.message = error.message;

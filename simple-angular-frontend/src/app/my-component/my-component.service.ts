@@ -13,4 +13,12 @@ export class MyComponentService {
     return this.http.get('http://localhost:8081/message', { responseType: 'text' });
   }
 
+  postMessage(firstName: string, lastName: string): Observable<string> {
+    var requestBody = {
+      firstName: firstName,
+      lastName: lastName
+    };
+    return this.http.post('http://localhost:8081/message', requestBody, {responseType: 'text'});
+  }
+
 }

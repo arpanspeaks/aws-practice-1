@@ -1,1 +1,11 @@
+<form [formGroup]="myForm" (submit)="onSubmit()">
+    <label for="firstName">First name: </label>
+    <input id="firstName" type="text" formControlName="firstName">
+    <br><br>
+    <label for="lastName">Last name: </label>
+    <input id="lastName" type="text" formControlName="lastName">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
 <h1>{{message}}</h1>
