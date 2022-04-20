@@ -13,7 +13,7 @@ import com.myproject.main.pojo.Body;
 
 @RestController
 @RequestMapping("message")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class MyController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(MyController.class);
