@@ -9,37 +9,39 @@ import { MyComponentService } from './my-component.service';
 })
 export class MyComponentComponent implements OnInit {
 
-  message: any;
+  people: any;
   myForm!: FormGroup;
 
   constructor(private myService: MyComponentService,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getMessage();
+    this.getPeople();
     this.myForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required]
     });
   }
 
-  getMessage() {
-    this.myService.getMessage().subscribe(data => {
-      this.message = data;
+  getPeople() {
+    this.myService.getPeople().subscribe(people => {
+      this.people = JSON.parse(people);
     }, error => {
-      this.message = error.message;
+      console.log(error.message);
     });
   }
 
   onSubmit() {
-    this.postMessage();
+    this.addPerson();
+    this.myForm.reset();
   }
 
-  postMessage() {
-    this.myService.postMessage(this.myForm.value).subscribe(data => {
-      this.message = data;
+  addPerson() {
+    this.myService.addPeople(this.myForm.value).subscribe(person => {
+      person;
+      this.getPeople();
     }, error => {
-      this.message = error.message;
+      console.log(error.message);
     });
   }
 

@@ -1,0 +1,16 @@
+.container {
+    height: 80vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.main {
+    height: 50%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-gap: 1vw;
+    justify-items: center;
+    align-items: center;
+}

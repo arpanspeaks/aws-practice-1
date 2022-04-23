@@ -1,11 +1,50 @@
-<form [formGroup]="myForm" (submit)="onSubmit()">
-    <label for="firstName">First name: </label>
-    <input id="firstName" type="text" formControlName="firstName">
-    <br><br>
-    <label for="lastName">Last name: </label>
-    <input id="lastName" type="text" formControlName="lastName">
-    <br><br>
-    <button type="submit">Submit</button>
-</form>
+<div class="pos-f-t">
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+</div>
 
-<h1>{{message}}</h1>
+<div class="container">
+    <div class="main">
+        <div class="left">
+            <span class="text-success display-6">Add Person</span><br><br>
+            <form [formGroup]="myForm" (submit)="onSubmit()">
+                <label for="firstName">First name:&nbsp;&nbsp;</label>
+                <input id="firstName" type="text" formControlName="firstName">
+                <br><br>
+                <label for="lastName">Last name:&nbsp;&nbsp;</label>
+                <input id="lastName" type="text" formControlName="lastName">
+                <br><br>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <div class="vr"></div>
+        <div class="right">
+            <span class="text-success display-6">People from Database</span><br><br>
+            <table class="table table-bordered" id="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of people; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{person.firstName}}</td>
+                        <td>{{person.lastName}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-center text-white fixed-bottom">
+    <div class="text-center p-3">
+      © 2022 Copyright | Arpan Sardar
+    </div>
+</footer>
