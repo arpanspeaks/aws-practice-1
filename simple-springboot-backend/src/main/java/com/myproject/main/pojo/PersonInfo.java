@@ -1,12 +1,12 @@
 package com.myproject.main.pojo;
 
-public class Body {
+public class PersonInfo {
 	private String firstName;
 	private String lastName;
 
-	public Body() { }
+	public PersonInfo() { }
 
-	public Body(String firstName, String lastName) {
+	public PersonInfo(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
