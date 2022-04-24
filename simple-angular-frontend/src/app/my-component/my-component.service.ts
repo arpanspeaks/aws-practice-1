@@ -10,11 +10,11 @@ export class MyComponentService {
   constructor(private http: HttpClient) { }
 
   getPeople(): Observable<string> {
-    return this.http.get('http://localhost:8081/api/get_people', { responseType: 'text' });
+    return this.http.get('http://ec2-107-23-150-231.compute-1.amazonaws.com:8081/api/get_people', { responseType: 'text' });
   }
 
   addPeople(requestBody: object): Observable<string> {
-    return this.http.post('http://localhost:8081/api/add_person', requestBody, { responseType: 'text' });
+    return this.http.post('http://ec2-107-23-150-231.compute-1.amazonaws.com:8081/api/add_person', requestBody, { responseType: 'text' });
   }
 
 }

@@ -38,7 +38,7 @@ export class MyComponentComponent implements OnInit {
 
   addPerson() {
     this.myService.addPeople(this.myForm.value).subscribe(person => {
-      person;
+      alert(this.myForm.value.firstName + ' ' + this.myForm.value.lastName + ' added successfully');
       this.getPeople();
     }, error => {
       console.log(error.message);

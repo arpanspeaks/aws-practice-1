@@ -19,7 +19,7 @@ import com.myproject.main.service.PersonService;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://arpan-fe.s3-website-us-east-1.amazonaws.com")
 public class PersonController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
